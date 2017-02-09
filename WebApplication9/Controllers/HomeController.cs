@@ -34,6 +34,7 @@ namespace WebApplication9.Controllers
                 var myName = currentUser.Firstname;
             }
             var test = User.Identity.GetUserName();
+            var userID = User.Identity.GetUserId();
 
             return View();
         }
