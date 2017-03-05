@@ -23,6 +23,8 @@ namespace WebApplication9.DependencyResolution {
     using StructureMap.Graph;
     using StructureMap.Pipeline;
     using StructureMap.TypeRules;
+    using StructureMap;
+    using StructureMap.Graph.Scanning;
 
     public class ControllerConvention : IRegistrationConvention {
         #region Public Methods and Operators
@@ -31,6 +33,18 @@ namespace WebApplication9.DependencyResolution {
             if (type.CanBeCastTo<Controller>() && !type.IsAbstract) {
                 registry.For(type).LifecycleIs(new UniquePerRequestLifecycle());
             }
+        }
+
+        public void ScanTypes(TypeSet types, Registry registry)
+        {
+            foreach (var type in types.AllTypes())
+            {
+                if (type.CanBeCastTo<Controller>() && !type.IsAbstract)
+                {
+                    registry.For(type).LifecycleIs(new UniquePerRequestLifecycle());
+                }
+            }
+
         }
 
         #endregion

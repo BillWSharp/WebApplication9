@@ -19,6 +19,7 @@ namespace WebApplication9.DependencyResolution {
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using Models;
+    using StructureMap;
     using StructureMap.Configuration.DSL;
     using StructureMap.Graph;
     using System.Data.Entity;
