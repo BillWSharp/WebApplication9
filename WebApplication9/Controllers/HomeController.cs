@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using WebApplication9.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Net.Http;
 
 namespace WebApplication9.Controllers
 {
@@ -39,6 +40,9 @@ namespace WebApplication9.Controllers
             var userID = User.Identity.GetUserId();
 
             return View();
+
+            var client = new HttpClient();
+
         }
 
         public ActionResult Contact()
